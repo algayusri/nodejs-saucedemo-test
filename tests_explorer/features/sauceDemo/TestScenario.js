@@ -313,7 +313,7 @@ describe('Run Test Scenario', function () {
 
         let strErrorMessage = await PageCheckoutStepOne.getErrorMessage();
         let errMessageTotal = "Error: The message is not valid!";
-        expect(strErrorMessage, errMessageTotal).to.equal("Error: Postal Code is required 123");
+        expect(strErrorMessage, errMessageTotal).to.equal("Error: Postal Code is required");
     })
 
     function calculateTotal(subTotal, tax){
