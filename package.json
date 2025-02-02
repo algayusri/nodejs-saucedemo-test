@@ -1,0 +1,43 @@
+{
+  "name": "TemplateUI-AAB",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "qc": "node -e \"require('datejs'); const dateTime = Date.today().setTimeToNow().toString('yyyyMMdd_HHmmss'); require('child_process').execSync(`cross-env NODE_ENV=qc mocha --timeout 0 ./tests_explorer/features/**/*.js --reporter mocha-multi-reporters --reporterOptions configFile=./config/configQC.json,cmrOutput=mocha-junit-reporter+testsuitesTitle+NamaScrum:mocha-junit-reporter+mochaFile+${dateTime}:mochawesome+reportFilename+${dateTime}`,{stdio: 'inherit'})\"& cross-env NODE_ENV=qc node ./tests_explorer/utils/xml_data_time.js",
+    "staging": "node -e \"require('datejs'); const dateTime = Date.today().setTimeToNow().toString('yyyyMMdd_HHmmss'); require('child_process').execSync(`cross-env NODE_ENV=staging mocha --timeout 0 ./tests_explorer/features/**/*.js --reporter mocha-multi-reporters --reporterOptions configFile=./config/configSTAGING.json,cmrOutput=mocha-junit-reporter+testsuitesTitle+NamaScrum:mocha-junit-reporter+mochaFile+${dateTime}:mochawesome+reportFilename+${dateTime}`,{stdio: 'inherit'})\"& cross-env NODE_ENV=staging node ./tests_explorer/utils/xml_data_time.js",
+    "qc-custom": "node -e \"require('datejs'); const dateTime = Date.today().setTimeToNow().toString('yyyyMMdd_HHmmss'); require('child_process').execSync(`cross-env NODE_ENV=qc mocha --timeout 0 ./tests_explorer/features/%npm_config_featurepath% --reporter mocha-multi-reporters --reporterOptions configFile=./config/configQC.json,cmrOutput=mocha-junit-reporter+testsuitesTitle+NamaScrum:mocha-junit-reporter+mochaFile+${dateTime}:mochawesome+reportFilename+${dateTime}`,{stdio: 'inherit'})\"& cross-env NODE_ENV=qc node ./tests_explorer/utils/xml_data_time.js",
+    "staging-custom": "node -e \"require('datejs'); const dateTime = Date.today().setTimeToNow().toString('yyyyMMdd_HHmmss'); require('child_process').execSync(`cross-env NODE_ENV=staging mocha --timeout 0 ./tests_explorer/features/%npm_config_featurepath% --reporter mocha-multi-reporters --reporterOptions configFile=./config/configSTAGING.json,cmrOutput=mocha-junit-reporter+testsuitesTitle+NamaScrum:mocha-junit-reporter+mochaFile+${dateTime}:mochawesome+reportFilename+${dateTime}`,{stdio: 'inherit'})\"& cross-env NODE_ENV=staging node ./tests_explorer/utils/xml_data_time.js",
+    "qc-tag": "node -e \"require('datejs'); const dateTime = Date.today().setTimeToNow().toString('yyyyMMdd_HHmmss'); require('child_process').execSync(`cross-env NODE_ENV=qc mocha --fgrep %npm_config_pattern% --timeout 0 ./tests_explorer/features/%npm_config_featurepath% --reporter mocha-multi-reporters --reporterOptions configFile=./config/configQC.json,cmrOutput=mocha-junit-reporter+testsuitesTitle+NamaScrum:mocha-junit-reporter+mochaFile+${dateTime}:mochawesome+reportFilename+${dateTime}`,{stdio: 'inherit'})\"& cross-env NODE_ENV=qc node ./tests_explorer/utils/xml_data_time.js",
+    "staging-tag": "node -e \"require('datejs'); const dateTime = Date.today().setTimeToNow().toString('yyyyMMdd_HHmmss'); require('child_process').execSync(`cross-env NODE_ENV=staging mocha --fgrep %npm_config_pattern% --timeout 0 ./tests_explorer/features/%npm_config_featurepath% --reporter mocha-multi-reporters --reporterOptions configFile=./config/configSTAGING.json,cmrOutput=mocha-junit-reporter+testsuitesTitle+NamaScrum:mocha-junit-reporter+mochaFile+${dateTime}:mochawesome+reportFilename+${dateTime}`,{stdio: 'inherit'})\"& cross-env NODE_ENV=staging node ./tests_explorer/utils/xml_data_time.js",
+    "qc-multitag": "node script/qc_multitag.js",
+    "staging-multitag": "node script/staging_multitag.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "chromedriver": "^126.0.5",
+    "cross-env": "^7.0.3",
+    "datejs": "^1.0.0-rc3",
+    "dotenv": "^16.0.0",
+    "faker": "^5.5.3",
+    "https": "^1.0.0",
+    "jimp": "^0.22.12",
+    "mocha": "^10.0.0",
+    "mocha-junit-reporter": "^2.0.2",
+    "mocha-multi-reporters": "^1.5.1",
+    "mochawesome": "^7.0.1",
+    "mssql": "^11.0.1",
+    "node-encoder": "^2.0.4",
+    "oracledb": "^6.1.0",
+    "path": "^0.12.7",
+    "qrcode-reader": "^1.0.4",
+    "selenium-webdriver": "^4.1.1",
+    "sharp": "^0.33.3",
+    "tedious": "^18.6.1",
+    "urlencode": "^1.1.0",
+    "webdriver-manager": "^11.1.1",
+    "xlsx": "^0.18.0"
+  }
+}
