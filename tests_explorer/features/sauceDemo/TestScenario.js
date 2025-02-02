@@ -313,7 +313,7 @@ describe('Run Test Scenario', function () {
 
         let strErrorMessage = await PageCheckoutStepOne.getErrorMessage();
         let errMessageTotal = "Error: The message is not valid!";
-        expect(strErrorMessage, errMessageTotal).to.equal("Error: Postal Code is required");
+        expect(strErrorMessage, errMessageTotal).to.equal("Error: Postal Code is required 123");
     })
 
     function calculateTotal(subTotal, tax){
@@ -340,18 +340,6 @@ describe('Run Test Scenario', function () {
 
         return result;
     }  
-
-    afterEach(async function () {
-        if (this.currentTest.state == 'failed') {
-            let fileName = generate.uniqueByDate('yyyyMMddHHmmss')
-            let image = await driver.takeScreenshot()
-            await fsp.writeFile('Reports/screenshots/' + fileName + '.jpg', image, 'base64')
-            let imageFileName = fileName + '.jpg';
-          
-            addContext(this, 'Screenshot of failed test')
-            addContext(this, '../screenshots/' + imageFileName)
-        }
-    })
 
     afterEach(async function () {
         await driver.close();
