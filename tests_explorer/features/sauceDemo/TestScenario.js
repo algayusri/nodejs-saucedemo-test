@@ -325,7 +325,7 @@ describe('Run Test Scenario', function () {
     function calculateTax(subTotal){
         let result = 0;
         let taxRate = 0.08;
-        result = (Math.round((subTotal * taxRate) * 100) / 100).toFixed(2);
+        result = (subTotal * taxRate).toFixed(2);
         return result
     }
 
